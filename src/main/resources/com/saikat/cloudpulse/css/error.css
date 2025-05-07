@@ -1,0 +1,18 @@
+.container {
+    -fx-background-color: #1c1818;
+}
+
+.retry-label {
+    -fx-font-family: C059;
+    -fx-font-size: 22;
+    -fx-text-fill: #b01313;
+}
+
+.retry-button {
+    -fx-background-radius: 30;
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10;
+    -fx-font-size: 15;
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import com.saikat.cloudpulse.components.AutoSuggestTextField?>
+<?import com.saikat.cloudpulse.components.ForecastCards?>
+
+<StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saikat.cloudpulse.controllers.HomeController">
+    <VBox prefHeight="400.0" prefWidth="600.0" spacing="10" styleClass="screen">
+        <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+        </padding>
+        <HBox alignment="CENTER" prefHeight="100.0" spacing="10" styleClass="container, container-title" fx:id="titleContainer">
+            <padding>
+                <Insets bottom="10" left="8" right="8" top="40" />
+            </padding>
+            <VBox prefHeight="200.0" HBox.hgrow="ALWAYS">
+                <Label text="Hello, Saikat..." styleClass="title-name" fx:id="nameLabel"/>
+                <Label text="Good Morning..!!" styleClass="title-greetings" fx:id="greetingTimeLabel"/>
+            </VBox>
+            <Button fx:id="refreshButton" onAction="#refreshButtonClicked" mnemonicParsing="false" styleClass="btn, refresh-button">
+                <graphic>
+                    <FontIcon iconLiteral="fas-redo" iconColor="WHITE" iconSize="24"/>
+                </graphic>
+            </Button>
+            <MenuButton fx:id="menuButton" mnemonicParsing="false" styleClass="toolbar-button, btn" style="-fx-base: #888888; -fx-background-radius: 12">
+                <graphic>
+                    <FontIcon iconLiteral="fas-bars" iconColor="WHITE" iconSize="24"/>
+                </graphic>
+               <items>
+                    <MenuItem mnemonicParsing="false" text="Change Name" styleClass="menu-item" onAction="#showNameChangeScreen"/>
+                    <MenuItem mnemonicParsing="false" text="Refresh" styleClass="menu-item" onAction="#refreshButtonClicked"/>
+                    <MenuItem mnemonicParsing="false" text="Location Info" styleClass="menu-item" onAction="#gotoLocationDetailsScreen"/>
+                    <MenuItem mnemonicParsing="false" text="Exit App" styleClass="menu-item" onAction="#appExitAction"/>
+               </items>
+             </MenuButton>
+        </HBox>
+        <HBox styleClass="search-container ">
+            <AutoSuggestTextField fx:id="autoSuggestTextField" styleClass="input-box"/>
+            <Button mnemonicParsing="false" styleClass="search-btn" onAction="#searchButtonClicked">
+                <graphic>
+                    <FontIcon iconLiteral="fas-search" iconColor="aliceblue" iconSize="24"/>
+                </graphic>
+            </Button>
+        </HBox>
+        <HBox alignment="CENTER" prefWidth="Infinity"  styleClass="container">
+            <VBox prefHeight="220" alignment="CENTER" HBox.hgrow="SOMETIMES">
+                <Label fx:id="cityNameLabel" text="City Name" styleClass="text-white, text-md"/>
+                <Label fx:id="temperatureLabel" text="23" styleClass="text-white, text-lg"/>
+                <Label fx:id="sunnyOrRainyLabel" text="sunny" styleClass="text-white, text-md"/>
+            </VBox>
+            <Label fx:id="weatherTypeIconLabel" prefWidth="250" mnemonicParsing="true" alignment="CENTER" textAlignment="CENTER" >
+                <graphic>
+                    <FontIcon iconLiteral="fas-sun" iconColor="white" iconSize="40" />
+                </graphic>
+            </Label>
+        </HBox>
+
+        <HBox alignment="CENTER" prefHeight="150.0" spacing="30" styleClass="container">
+            <Label text="60%" prefWidth="200" styleClass="text-white" graphicTextGap="10" mnemonicParsing="true" textAlignment="CENTER" alignment="CENTER" >
+                <graphic>
+                    <FontIcon iconLiteral="fas-redo" iconColor="antiquewhite" iconSize="13"/>
+                </graphic>
+            </Label>
+            <Label text="12 km/h" styleClass="text-white" textAlignment="CENTER" graphicTextGap="10">
+                <graphic>
+                    <FontIcon iconLiteral="fas-redo" iconColor="antiquewhite" iconSize="13"/>
+                </graphic>
+            </Label>
+            <Label text="1080 hPa" styleClass="text-white" graphicTextGap="10" textAlignment="CENTER">
+                <graphic>
+                    <FontIcon iconLiteral="fas-redo" iconColor="antiquewhite" iconSize="13"/>
+                </graphic>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER">
+            <Label text="ForeCast" styleClass="forecast-title" textFill="aliceblue"/>
+        </HBox>
+        <HBox prefHeight="300" styleClass="bg-transparent">
+            <ScrollPane fx:id="scrollPane"  pannable="true" prefWidth="30" vbarPolicy="NEVER" HBox.hgrow="ALWAYS" styleClass="scroll-pane, container">
+                <ForecastCards />
+            </ScrollPane>
+        </HBox>
+    </VBox>
+</StackPane>

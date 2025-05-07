@@ -1,0 +1,7 @@
+.card {
+    -fx-background-color: #ff0000;
+    -fx-background-radius: 15;
+    -fx-padding: 10;
+    -fx-max-height: 150;
+    -fx-alignment: center;
+}

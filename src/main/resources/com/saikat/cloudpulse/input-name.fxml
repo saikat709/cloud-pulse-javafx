@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.saikat.cloudpulse.controllers.InputNameController"
+      alignment="CENTER" spacing="15" prefWidth="Infinity" prefHeight="Infinity"
+      maxWidth="200"
+      styleClass="bg">
+    <Label text="Please Enter Your Name: " styleClass="title"/>
+    <TextField fx:id="textField" styleClass="input"/>
+    <Button text="Save Name" fx:id="saveButton" onAction="#onSaveButtonClicked" styleClass="btn" />
+    <Button text="Cancel"  fx:id="cancelButton" onAction="#onCancelButtonClicked" styleClass="btn" graphicTextGap="7" visible="false" style="-fx-background-color: rgba(187,33,13,0.76)">
+        <graphic>
+            <FontIcon iconLiteral="fas-redo" iconSize="22" iconColor="white" />
+        </graphic>
+    </Button>
+
+</VBox>

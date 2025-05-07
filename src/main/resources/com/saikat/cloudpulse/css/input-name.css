@@ -1,0 +1,31 @@
+.bg {
+    -fx-background-color: rgba(7, 3, 14, 0.94);
+}
+
+.title {
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-text-fill: #fffff2;
+    -fx-text-alignment: center;
+}
+
+.input {
+    -fx-background-color:  rgba(54, 29, 54, 0.25);
+    -fx-border-color: #ffffff;
+    -fx-max-width: 300;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 13;
+    -fx-font-size: 19;
+    -fx-font-family: "DejaVu Serif";
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+}
+
+.btn {
+    -fx-background-color: rgba(58, 61, 222, 0.84);
+    -fx-background-radius: 15;
+    -fx-padding: 10 20;
+    -fx-text-fill: white;
+    -fx-max-width: 300;
+}

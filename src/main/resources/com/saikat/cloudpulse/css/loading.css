@@ -1,0 +1,12 @@
+.loading-container {
+    -fx-background-color: rgba(17, 13, 17, 0.98);
+}
+
+.hbox {
+    -fx-background-color: #00000000;
+}
+
+.loading-label {
+    -fx-font-family: "Bitstream Charter";
+    -fx-font-size: 18;
+}

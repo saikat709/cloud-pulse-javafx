@@ -1,0 +1,164 @@
+
+.title-name {
+    -fx-font-size: 16;
+    -fx-font-family: "Courier 10 Pitch";
+    -fx-wrap-text: no-wrap;
+    -fx-font-weight: bold;
+    -fx-text-fill: rgba(255, 255, 255, 0.91);
+}
+
+.title-greetings {
+    -fx-font-size: 23;
+    -fx-font-family: "DejaVu Serif";
+    -fx-wrap-text: no-wrap;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e583e5;
+}
+
+.search-container {
+    -fx-alignment: center;
+    -fx-spacing: 12;
+    -fx-padding: 12;
+}
+
+.btn {
+    -fx-background-color: rgba(14, 82, 56, 0.87);
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+}
+
+.menu-item {
+    -fx-padding: 7 15;
+    -fx-font-family: "Bitstream Charter";
+}
+
+.menu-button {
+    -fx-background-color: #00000000;
+}
+
+.menu-button > .arrow-button {
+    -fx-padding: 0;
+    -fx-shape: ""; /* removes the dropdown arrow shape */
+    -fx-background-color: #00000000!important;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-pref-width: 0; /* remove horizontal space */
+    -fx-max-width: 0;
+    -fx-min-width: 0;
+    -fx-opacity: 0;
+}
+
+/* MenuButton has both menu-button and toolbar-button class*/
+
+.toolbar-button:hover .arrow {
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-background-color: transparent;
+    -fx-padding: 0.25em; /* 3 */
+    -fx-shape: ""; /*"M 0 -3.5 v 7 l 4 -3.5 z";*/
+}
+
+.toolbar-button:openvertically .arrow {
+    -fx-padding: 0.166667em 0.333333em 0.166667em 0.333333em; /* 2 4 2 4 */
+    -fx-shape: " "; /* M 0 0 h 7 l -3.5 4 z"; */
+}
+
+.input-box {
+    -fx-padding: 10 16;
+    -fx-font-size: 18;
+    -fx-font-family: "Droid Sans Mono";
+    -fx-background-color: #dbb1b4, #fff0f0;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+.screen {
+    -fx-background-color: #060110;
+}
+
+.container{
+    -fx-background-color: #381c38;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-color-label-visible: #ffffff;
+    -fx-border-color: #935059;
+    -fx-text-fill: white;
+    -fx-padding: 10;
+}
+
+.container-title {
+    -fx-padding: 10 20;
+}
+
+
+ /* Scroll bar */
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-padding: 1px;
+    -fx-max-height: 1px;
+}
+
+.scroll-bar:horizontal .track {
+    -fx-background-color: rgba(238, 238, 238, 0.24);
+    -fx-background-radius: 4px;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(94, 156, 255, 0.35);
+    -fx-background-radius: 4px;
+    -fx-max-width: 1px;
+    -fx-max-height: 1px;
+}
+
+.scroll-pane .corner {
+    -fx-background-color: transparent;
+}
+
+
+ /* utility */
+
+.text-white {
+    -fx-text-fill: white;
+}
+
+.d-flex {
+    -fx-content-display: flex;
+}
+
+.refresh-button {
+    -fx-background-color: #00000000;
+}
+
+.search-btn {
+    -fx-background-color: #00000000;
+    -fx-font-size: 19;
+}
+
+.text-md {
+    -fx-font-size: 22;
+}
+
+.text-lg {
+    -fx-font-size: 29;
+}
+
+.bg-transparent {
+    -fx-background-color: #00000000;
+    /*-fx-background-color: red;*/
+}
+
+.scroll-pane {
+    -fx-padding: 10;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.forecast-title {
+    -fx-padding: 10 20;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-font-family: "Bitstream Charter";
+    -fx-text-alignment: center;
+    -fx-min-width: 100%;
+}

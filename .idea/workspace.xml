@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3b558519-d27d-411e-94a1-a4bdefb766d1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/api/LocationInfoAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/api/RetrieveFromApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/api/WeatherInfoAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/AutoSuggestTextField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/CustomCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/ForecastCards.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/constants/ConstValues.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/ErrorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/InputNameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/LoadingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/listeners/ApiCallListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/listeners/ApiResponseListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/listeners/CompleteOrFailureListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/listeners/OnDataUploadedListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/listeners/OnForecastDataLoaded.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/listeners/OnPreviousScreenChange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/listeners/OnUserNameChanged.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/listeners/OnWeatherDataLoaded.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/DataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/ScreenManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/StateManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/Clouds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/Coord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/Forecast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/ForecastCityInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/ForecastModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/LocationInfoModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/Weather.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/WeatherInfoModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/WeatherMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/Wind.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/screens/Screen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/screens/ScreenName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/storage/AppStorage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/components/card.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/comp/card.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/error.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/forecast-card.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/input-name.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/loading.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/error.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/files/city.list.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/home.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/input-name.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/loading.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2wXKArHpXlWNe4GHvzW06ByAH0D" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CloudPulseApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/saikat/projects/java/CloudPulse&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.saikat.cloudpulse.models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/files" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CloudPulseApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.saikat.cloudpulse.CloudPulseApplication" />
+      <module name="cloudpulse" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.saikat.cloudpulse.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CloudPulseApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b558519-d27d-411e-94a1-a4bdefb766d1" name="Changes" comment="" />
+      <created>1746182340157</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746182340157</updated>
+      <workItem from="1746182344792" duration="439000" />
+      <workItem from="1746213909928" duration="69000" />
+      <workItem from="1746216565256" duration="18000" />
+      <workItem from="1746349875632" duration="1368000" />
+      <workItem from="1746351310057" duration="1455000" />
+      <workItem from="1746353898538" duration="5878000" />
+      <workItem from="1746374836190" duration="3792000" />
+      <workItem from="1746382385829" duration="6260000" />
+      <workItem from="1746422424506" duration="4000" />
+      <workItem from="1746443253145" duration="3324000" />
+      <workItem from="1746452374586" duration="2315000" />
+      <workItem from="1746457046275" duration="1926000" />
+      <workItem from="1746461021669" duration="1643000" />
+      <workItem from="1746512756256" duration="1469000" />
+      <workItem from="1746517905084" duration="761000" />
+      <workItem from="1746519136630" duration="160000" />
+      <workItem from="1746526202802" duration="604000" />
+      <workItem from="1746533579311" duration="7210000" />
+      <workItem from="1746591213683" duration="339000" />
+      <workItem from="1746605240816" duration="1643000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
