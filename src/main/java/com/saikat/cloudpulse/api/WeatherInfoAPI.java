@@ -5,11 +5,26 @@ import com.saikat.cloudpulse.listeners.ApiCallListener;
 import com.saikat.cloudpulse.listeners.ApiResponseListener;
 import com.saikat.cloudpulse.models.ForecastModel;
 import com.saikat.cloudpulse.models.WeatherInfoModel;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class WeatherInfoAPI extends RetrieveFromApi{
     private final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
-    public static String API_KEY = "772ac6cab78f5ea6c606e2bb13741221";
     public final Gson gson = new Gson();
+    private final Dotenv dotenv;
+    private final String API_KEY;
+
+    public WeatherInfoAPI() {
+        super();
+        this.dotenv = Dotenv.load();
+        this.API_KEY = dotenv.get("API_KEY");
+
+        System.out.println("API_KEY: " + API_KEY);
+        if ( API_KEY == null ) {
+            System.out.println("API_KEY is null. Please set API_KEY in .env file");
+        } else {
+            System.out.println("API_KEY is set");
+        }
+    }
 
     public void getWeather(ApiCallListener<WeatherInfoModel> listener){
         this.callAPI(getWeatherUrl(), new ApiResponseListener() {

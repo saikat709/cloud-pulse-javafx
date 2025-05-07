@@ -15,6 +15,7 @@ module com.saikat.cloudpulse {
     requires org.kordamp.ikonli.core;
     requires org.kordamp.ikonli.fontawesome5;
     requires java.smartcardio;
+    requires io.github.cdimascio.dotenv.java;
 
     opens com.saikat.cloudpulse to javafx.fxml;
     exports com.saikat.cloudpulse;

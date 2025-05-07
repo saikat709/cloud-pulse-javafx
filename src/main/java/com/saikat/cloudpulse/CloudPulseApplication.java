@@ -4,6 +4,7 @@ import com.saikat.cloudpulse.listeners.CompleteOrFailureListener;
 import com.saikat.cloudpulse.manager.DataManager;
 import com.saikat.cloudpulse.manager.ScreenManager;
 import com.saikat.cloudpulse.screens.ScreenName;
+import io.github.cdimascio.dotenv.Dotenv;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
