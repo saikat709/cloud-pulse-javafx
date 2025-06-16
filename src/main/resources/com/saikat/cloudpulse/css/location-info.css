@@ -1,0 +1,7 @@
+.btn {
+    -fx-background-color: rgba(40, 91, 135, 0.87);
+    -fx-text-fill: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 10px;
+    -fx-min-width: 200px;
+}

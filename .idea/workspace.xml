@@ -5,12 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b558519-d27d-411e-94a1-a4bdefb766d1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/LocationDetailsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/listeners/OnScreenChangeListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/CityList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/storage/SavableInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/utils/FuzzySearchUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/location-info.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/location.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/CloudPulseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/CloudPulseApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/api/WeatherInfoAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/api/WeatherInfoAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/AutoSuggestTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/AutoSuggestTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/CustomCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/CustomCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/ForecastCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/ForecastCards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/constants/ConstValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/constants/ConstValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/InputNameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/InputNameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/ScreenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/ScreenManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/StateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/StateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/Coord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/Coord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/ForecastCityInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/ForecastCityInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/ForecastModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/ForecastModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/WeatherMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/WeatherMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/Wind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/Wind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/storage/AppStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/storage/AppStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/components/card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/components/card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/comp/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/comp/card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/files/city.list.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/files/city.list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/input-name.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/input-name.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +48,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -57,12 +85,13 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/saikat/projects/java/CloudPulse&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/saikat/bsse16/semester2/oop/OOP_2025&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -74,6 +103,8 @@
       <recent name="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/files" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -100,8 +131,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
       </set>
     </attachedChunks>
   </component>
@@ -133,7 +164,20 @@
       <workItem from="1746591213683" duration="339000" />
       <workItem from="1746605240816" duration="1643000" />
       <workItem from="1746612755709" duration="617000" />
-      <workItem from="1746614476795" duration="601000" />
+      <workItem from="1746614476795" duration="1104000" />
+      <workItem from="1746678983267" duration="179000" />
+      <workItem from="1746724012403" duration="310000" />
+      <workItem from="1746892067427" duration="11335000" />
+      <workItem from="1746944347742" duration="818000" />
+      <workItem from="1746951878958" duration="998000" />
+      <workItem from="1747039647443" duration="41000" />
+      <workItem from="1747125582331" duration="95000" />
+      <workItem from="1747128617303" duration="20000" />
+      <workItem from="1747138977338" duration="148000" />
+      <workItem from="1749404561990" duration="3633000" />
+      <workItem from="1749449505980" duration="20000" />
+      <workItem from="1749669216617" duration="861000" />
+      <workItem from="1750064710137" duration="7427000" />
     </task>
     <servers />
   </component>

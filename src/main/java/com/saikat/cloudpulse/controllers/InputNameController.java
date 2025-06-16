@@ -2,7 +2,9 @@ package com.saikat.cloudpulse.controllers;
 
 import com.saikat.cloudpulse.manager.DataManager;
 import com.saikat.cloudpulse.manager.ScreenManager;
+import com.saikat.cloudpulse.manager.StateManager;
 import com.saikat.cloudpulse.screens.ScreenName;
+import com.saikat.cloudpulse.storage.AppStorage;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -16,28 +18,29 @@ public class InputNameController {
     @FXML public Button cancelButton;
 
     private ScreenManager screenManager;
-    private DataManager dataManager;
-
+    private DataManager   dataManager;
+    private StateManager stateManager;
 
     public void initialize(){
         this.screenManager = ScreenManager.getInstance();
         this.dataManager = DataManager.getInstance();
-        System.out.println("Input name screen initialized: " + (dataManager == null) + " " + (screenManager == null) );
+        this.stateManager = StateManager.getInstance();
+        System.out.println("Input name screen initialized: " + stateManager.getUserName() + " " + (dataManager == null) + " " + (screenManager == null) );
 
+        if( this.dataManager != null)  textField.setText(this.stateManager.getUserName());
         textField.setOnKeyPressed( k -> {
             if ( k.getCode().equals(KeyCode.ENTER) ) {
                 saveAndChange();
             }
         });
 
-        /*
-        dataManager.setOnPreviousScreenChange( () -> {
-            if ( dataManager.getPreviousScreen() != null ) {
+        screenManager.addOnScreenChangeListener( screenName -> {
+            if ( screenName == ScreenName.NAME_INPUT && stateManager.isCanGoBack() ){
                 cancelButton.setText("Go Back");
                 cancelButton.setVisible(true);
             }
         });
-        */
+
     }
 
     @FXML
@@ -48,9 +51,8 @@ public class InputNameController {
     private void saveAndChange(){
        if ( validateName() != null ) {
             System.out.println("Saving name: " + textField.getText());
-            dataManager.setUserName(textField.getText());
-            dataManager.setPreviousScreen(ScreenName.NAME_INPUT);
-            dataManager.clearPreviousScreen();
+            stateManager.setUserName(textField.getText());
+            AppStorage.getInstance().saveUserName(textField.getText());
             screenManager.switchScreen(ScreenName.HOME);
         }
     }
@@ -58,7 +60,7 @@ public class InputNameController {
     private String validateName(){
         boolean isValid = textField.getText().trim().length() < 5;
         for ( char c : textField.getText().toCharArray() ) {
-            if ( !Character.isLetter(c) ) isValid = false;
+            if ( !Character.isAlphabetic(c) ) isValid = false;
         }
         if (  isValid ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -73,8 +75,6 @@ public class InputNameController {
 
     @FXML
     public void onCancelButtonClicked(ActionEvent actionEvent) {
-        dataManager.setPreviousScreen(ScreenName.NAME_INPUT);
         screenManager.switchScreen(ScreenName.HOME);
-        dataManager.setCanGoHome(false);
     }
 }

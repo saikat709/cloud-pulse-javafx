@@ -15,12 +15,6 @@
     -fx-text-fill: #e583e5;
 }
 
-.search-container {
-    -fx-alignment: center;
-    -fx-spacing: 12;
-    -fx-padding: 12;
-}
-
 .btn {
     -fx-background-color: rgba(14, 82, 56, 0.87);
     -fx-text-fill: white;
@@ -62,14 +56,6 @@
     -fx-shape: " "; /* M 0 0 h 7 l -3.5 4 z"; */
 }
 
-.input-box {
-    -fx-padding: 10 16;
-    -fx-font-size: 18;
-    -fx-font-family: "Droid Sans Mono";
-    -fx-background-color: #dbb1b4, #fff0f0;
-    -fx-background-radius: 20;
-    -fx-border-radius: 20;
-}
 
 .screen {
     -fx-background-color: #060110;
@@ -128,9 +114,26 @@
     -fx-background-color: #00000000;
 }
 
+.search-container {
+    -fx-alignment: center;
+    -fx-spacing: 12;
+    -fx-padding: 15;
+}
+
 .search-btn {
-    -fx-background-color: #00000000;
-    -fx-font-size: 19;
+    -fx-background-color: rgba(147, 127, 127, 0);
+    -fx-font-size: 20;
+}
+
+.input-box {
+    -fx-padding: 13 16;
+    -fx-font-size: 18;
+    -fx-font-family: "Droid Sans Mono";
+    -fx-background-color: #380d0d, rgb(255, 255, 253);
+    -fx-border-color: #380d0d;
+    -fx-background-radius: 27;
+    -fx-border-radius: 27;
+    -fx-text-fill: rgba(8, 2, 17, 0.94);
 }
 
 .text-md {
@@ -138,7 +141,7 @@
 }
 
 .text-lg {
-    -fx-font-size: 29;
+    -fx-font-size: 35;
 }
 
 .bg-transparent {

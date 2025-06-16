@@ -8,7 +8,7 @@
 <?import com.saikat.cloudpulse.components.ForecastCards?>
 
 <StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saikat.cloudpulse.controllers.HomeController">
-    <VBox prefHeight="400.0" prefWidth="600.0" spacing="10" styleClass="screen">
+    <VBox prefHeight="400.0" prefWidth="650.0" spacing="10" styleClass="screen">
         <padding>
             <Insets bottom="10" left="10" right="10" top="10" />
         </padding>
@@ -33,13 +33,13 @@
                     <MenuItem mnemonicParsing="false" text="Change Name" styleClass="menu-item" onAction="#showNameChangeScreen"/>
                     <MenuItem mnemonicParsing="false" text="Refresh" styleClass="menu-item" onAction="#refreshButtonClicked"/>
                     <MenuItem mnemonicParsing="false" text="Location Info" styleClass="menu-item" onAction="#gotoLocationDetailsScreen"/>
-                    <MenuItem mnemonicParsing="false" text="Exit App" styleClass="menu-item" onAction="#appExitAction"/>
+                    <MenuItem mnemonicParsing="false" text="Exit" styleClass="menu-item" onAction="#appExitAction"/>
                </items>
              </MenuButton>
         </HBox>
-        <HBox styleClass="search-container ">
-            <AutoSuggestTextField fx:id="autoSuggestTextField" styleClass="input-box"/>
-            <Button mnemonicParsing="false" styleClass="search-btn" onAction="#searchButtonClicked">
+        <HBox styleClass="search-container">
+            <AutoSuggestTextField fx:id="autoSuggestTextField" prefWidth="550" styleClass="input-box"/>
+            <Button fx:id="searchOrCancelSearchedBtn" mnemonicParsing="false" styleClass="search-btn" onAction="#searchButtonClicked">
                 <graphic>
                     <FontIcon iconLiteral="fas-search" iconColor="aliceblue" iconSize="24"/>
                 </graphic>
@@ -53,32 +53,32 @@
             </VBox>
             <Label fx:id="weatherTypeIconLabel" prefWidth="250" mnemonicParsing="true" alignment="CENTER" textAlignment="CENTER" >
                 <graphic>
-                    <FontIcon iconLiteral="fas-sun" iconColor="white" iconSize="40" />
+                    <FontIcon iconLiteral="fas-sun" iconColor="white" iconSize="50" />
                 </graphic>
             </Label>
         </HBox>
 
-        <HBox alignment="CENTER" prefHeight="150.0" spacing="30" styleClass="container">
-            <Label text="60%" prefWidth="200" styleClass="text-white" graphicTextGap="10" mnemonicParsing="true" textAlignment="CENTER" alignment="CENTER" >
+        <HBox alignment="CENTER" prefHeight="150.0" prefWidth="Infinity" spacing="50" styleClass="container">
+            <Label fx:id="humidityLabel" text="60%" styleClass="text-white" graphicTextGap="10" mnemonicParsing="true" textAlignment="CENTER" alignment="CENTER" >
                 <graphic>
-                    <FontIcon iconLiteral="fas-redo" iconColor="antiquewhite" iconSize="13"/>
+                    <FontIcon iconLiteral="fas-cloud" iconColor="antiquewhite" iconSize="13"/>
                 </graphic>
             </Label>
-            <Label text="12 km/h" styleClass="text-white" textAlignment="CENTER" graphicTextGap="10">
+            <Label fx:id="windSpeedLabel" text="12 km/h" styleClass="text-white" textAlignment="CENTER" graphicTextGap="10">
                 <graphic>
-                    <FontIcon iconLiteral="fas-redo" iconColor="antiquewhite" iconSize="13"/>
+                    <FontIcon iconLiteral="fas-wind" iconColor="antiquewhite" iconSize="13"/>
                 </graphic>
             </Label>
-            <Label text="1080 hPa" styleClass="text-white" graphicTextGap="10" textAlignment="CENTER">
+            <Label fx:id="pressureLabel" text="1080 hPa" styleClass="text-white" graphicTextGap="10" textAlignment="CENTER">
                 <graphic>
-                    <FontIcon iconLiteral="fas-redo" iconColor="antiquewhite" iconSize="13"/>
+                    <FontIcon iconLiteral="fas-cog" iconColor="antiquewhite" iconSize="13"/>
                 </graphic>
             </Label>
         </HBox>
         <HBox alignment="CENTER">
             <Label text="ForeCast" styleClass="forecast-title" textFill="aliceblue"/>
         </HBox>
-        <HBox prefHeight="300" styleClass="bg-transparent">
+        <HBox prefHeight="310" styleClass="bg-transparent">
             <ScrollPane fx:id="scrollPane"  pannable="true" prefWidth="30" vbarPolicy="NEVER" HBox.hgrow="ALWAYS" styleClass="scroll-pane, container">
                 <ForecastCards />
             </ScrollPane>

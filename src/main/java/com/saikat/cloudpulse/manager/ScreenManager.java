@@ -1,12 +1,15 @@
 package com.saikat.cloudpulse.manager;
 
 import com.saikat.cloudpulse.CloudPulseApplication;
+import com.saikat.cloudpulse.listeners.OnScreenChangeListener;
 import com.saikat.cloudpulse.screens.Screen;
 import com.saikat.cloudpulse.screens.ScreenName;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ScreenManager {
     private final HashMap<ScreenName, Screen> screens = new HashMap<>();
@@ -14,13 +17,18 @@ public class ScreenManager {
     public static ScreenName currentScreen = ScreenName.HOME;
     private Stage stage;
 
+    private final List<OnScreenChangeListener> onScreenChangeListeners;
+
     private Number newX, newY;
 
     private ScreenManager() {
-        screens.put(ScreenName.NAME_INPUT, new Screen("input-name.fxml", "css/input-name.css"));
-        screens.put(ScreenName.HOME,       new Screen("home.fxml", "css/home.css"));
-        screens.put(ScreenName.LOADING,    new Screen("loading.fxml", "css/loading.css"));
-        screens.put(ScreenName.ERROR,      new Screen("error.fxml", "css/error.css"));
+        screens.put(ScreenName.NAME_INPUT,    new Screen("input-name.fxml", "css/input-name.css"));
+        screens.put(ScreenName.HOME,          new Screen("home.fxml", "css/home.css"));
+        screens.put(ScreenName.LOADING,       new Screen("loading.fxml", "css/loading.css"));
+        screens.put(ScreenName.ERROR,         new Screen("error.fxml", "css/error.css"));
+        screens.put(ScreenName.LOCATION_INFO, new Screen("location.fxml", "css/location-info.css"));
+
+        this.onScreenChangeListeners = new ArrayList<>();
     }
 
     public void initialize(Stage stage) {
@@ -79,9 +87,19 @@ public class ScreenManager {
                 }
                 screen.show(stage);
                 stage.show();
+                if ( !onScreenChangeListeners.isEmpty() ){
+                    for( OnScreenChangeListener listener : onScreenChangeListeners ){
+                        listener.onScreenChange(screenName);
+                    }
+                }
             } catch (Exception e) {
                 System.out.println("Error switching screen to + (" +  screenName.toString() + "): " + e.getLocalizedMessage());
             }
         }
+    }
+
+
+    public void addOnScreenChangeListener(OnScreenChangeListener onScreenChangeListener) {
+        this.onScreenChangeListeners.add(onScreenChangeListener);
     }
 }

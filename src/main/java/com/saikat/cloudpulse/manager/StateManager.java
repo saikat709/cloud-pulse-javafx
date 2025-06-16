@@ -1,12 +1,15 @@
 package com.saikat.cloudpulse.manager;
 
-import com.saikat.cloudpulse.listeners.OnWeatherDataLoaded;
-
 public class StateManager {
     public static StateManager instance;
-    private OnWeatherDataLoaded weatherDataLoadedListener;
 
-    private StateManager() { }
+    private String  userName;
+    private boolean canGoBack;
+
+    private StateManager() {
+        super();
+        canGoBack = false;
+    }
 
     public static StateManager getInstance() {
         if (instance == null) {
@@ -15,12 +18,19 @@ public class StateManager {
         return instance;
     }
 
-
-    public OnWeatherDataLoaded getWeatherDataLoadedListener() {
-        return weatherDataLoadedListener;
+    public boolean isCanGoBack() {
+        return canGoBack;
     }
 
-    public void setWeatherDataLoadedListener(OnWeatherDataLoaded weatherDataLoadedListener) {
-        this.weatherDataLoadedListener = weatherDataLoadedListener;
+    public void setCanGoBack(boolean canGoBack) {
+        this.canGoBack = canGoBack;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

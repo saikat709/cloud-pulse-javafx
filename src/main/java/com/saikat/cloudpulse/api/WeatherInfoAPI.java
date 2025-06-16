@@ -47,7 +47,8 @@ public class WeatherInfoAPI extends RetrieveFromApi{
 
 
     public void getForeCast(ApiCallListener<ForecastModel> listener){
-        this.callAPI(getWeatherUrl(), new ApiResponseListener() {
+        System.out.println(getForeCastUrl());
+        this.callAPI(getForeCastUrl(), new ApiResponseListener() {
             @Override
             public void onFailure(String message) {
                 listener.onApiCallFailure(message);
@@ -73,7 +74,6 @@ public class WeatherInfoAPI extends RetrieveFromApi{
         return BASE_URL + "weather?q=" + "London,uk" + "&format=json&APPID=" + API_KEY;
     }
 }
-
 
 // http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}.
 // http://api.openweathermap.org/data/2.5/weather?q=Ramna,Dhaka&appid=772ac6cab78f5ea6c606e2bb13741221&units=metric

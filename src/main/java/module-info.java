@@ -20,7 +20,14 @@ module com.saikat.cloudpulse {
     opens com.saikat.cloudpulse to javafx.fxml;
     exports com.saikat.cloudpulse;
     exports com.saikat.cloudpulse.controllers;
+    exports com.saikat.cloudpulse.models;
     exports com.saikat.cloudpulse.components;
+    exports com.saikat.cloudpulse.listeners;
+    exports com.saikat.cloudpulse.screens;
     opens com.saikat.cloudpulse.controllers to javafx.fxml;
+    opens com.saikat.cloudpulse.components to javafx.fxml;
     opens com.saikat.cloudpulse.models to com.google.gson;
+    opens com.saikat.cloudpulse.storage to com.google.gson;
+    exports com.saikat.cloudpulse.manager;
+    opens com.saikat.cloudpulse.manager to com.google.gson;
 }
