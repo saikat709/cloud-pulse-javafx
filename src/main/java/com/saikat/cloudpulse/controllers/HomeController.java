@@ -2,12 +2,11 @@ package com.saikat.cloudpulse.controllers;
 
 import com.saikat.cloudpulse.components.AutoSuggestTextField;
 import com.saikat.cloudpulse.listeners.CompleteOrFailureListener;
-import com.saikat.cloudpulse.listeners.OnDataUploadedListener;
-import com.saikat.cloudpulse.manager.CityList;
+import com.saikat.cloudpulse.manager.CityListManager;
 import com.saikat.cloudpulse.manager.DataManager;
 import com.saikat.cloudpulse.manager.ScreenManager;
 import com.saikat.cloudpulse.manager.StateManager;
-import com.saikat.cloudpulse.models.City;
+import com.saikat.cloudpulse.models.ForecastModel;
 import com.saikat.cloudpulse.models.LocationInfoModel;
 import com.saikat.cloudpulse.models.WeatherInfoModel;
 import com.saikat.cloudpulse.screens.ScreenName;
@@ -21,10 +20,7 @@ import javafx.scene.paint.Color;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import org.kordamp.ikonli.javafx.FontIcon;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class HomeController {
     @FXML public MenuButton menuButton;
@@ -41,13 +37,15 @@ public class HomeController {
     @FXML public Label pressureLabel;
     @FXML public Label windSpeedLabel;
     @FXML public Label humidityLabel;
+    @FXML public Button searchOrCancelSearchedBtn;
 
     private final ScreenManager manager =  ScreenManager.getInstance();
     private final DataManager   dataManager = DataManager.getInstance();
     private final StateManager  stateManager = StateManager.getInstance();
-    private final CityList      cityList = CityList.getInstance();
-    @FXML public Button searchOrCancelSearchedBtn;
+    private final CityListManager cityList = CityListManager.getInstance();
 
+    private WeatherInfoModel previousWeatherInfo;
+    private ForecastModel previousForecastInfo;
     private boolean hasSearchedWeather;
 
     public void initialize(){
@@ -55,15 +53,10 @@ public class HomeController {
 
         autoSuggestTextField.setOnKeyReleased(event -> {
             if ( event.getCode() == KeyCode.ENTER ) {
-                if ( autoSuggestTextField.getText().isEmpty()) showAlertTextEmpty();
-                else proceedSearch();
+                if ( autoSuggestTextField.getSelectedCity() != null ) proceedSearch();
             } else {
                 if ( hasSearchedWeather ) {
-                    hasSearchedWeather = false;
-                    FontIcon icon = new FontIcon();
-                    icon.setIconCode(FontAwesomeSolid.SEARCH);
-                    icon.setIconColor(Color.WHITE);
-                    searchOrCancelSearchedBtn.setGraphic(icon);
+                    cancelExistingSearch();
                 }
             }
         });
@@ -82,7 +75,7 @@ public class HomeController {
     }
 
     private void updateInformation() {
-        LocationInfoModel locationInfoModel = dataManager.getCurrentLocation();
+        LocationInfoModel locationInfoModel = stateManager.getLocationInfoModel();
         cityNameLabel.setText(locationInfoModel.getCity());
 
         WeatherInfoModel weatherInfoModel = dataManager.getWeatherInfo();
@@ -130,35 +123,12 @@ public class HomeController {
             showAlertTextEmpty();
             return;
         }
-
-        FontIcon icon = new FontIcon();
-        icon.setIconCode(FontAwesomeSolid.SEARCH);
-        icon.setIconColor(Color.WHITE);
-
         if ( hasSearchedWeather ) {
-            searchOrCancelSearchedBtn.setGraphic(icon);
-            autoSuggestTextField.clearSelection();
-            hasSearchedWeather = false;
+            cancelExistingSearch();
+            dataManager.loadDataFromInternet(ScreenName.HOME);
         } else {
-            icon.setIconCode(FontAwesomeSolid.CODE);
-            icon.setIconColor(Color.WHITE);
-            dataManager.loadDataFromInternet(new CompleteOrFailureListener() {
-                @Override
-                public void onComplete() {
-                    manager.switchScreen(ScreenName.HOME);
-                }
-
-                @Override
-                public void onFailure() {
-                    manager.switchScreen(ScreenName.ERROR);
-                }
-            });
-            searchOrCancelSearchedBtn.setGraphic(icon);
-            manager.switchScreen(ScreenName.LOADING);
-            hasSearchedWeather = true;
+            proceedSearch();
         }
-
-
         System.out.println(autoSuggestTextField.getText());
     }
 
@@ -171,7 +141,28 @@ public class HomeController {
     }
 
     private void proceedSearch(){
+        FontIcon icon = new FontIcon();
+        icon.setIconColor(Color.WHITE);
 
+        icon.setIconCode(FontAwesomeSolid.CODE); // TODO: cancel icon
+        icon.setIconColor(Color.WHITE);
+        searchOrCancelSearchedBtn.setGraphic(icon);
+        manager.switchScreen(ScreenName.LOADING);
+        hasSearchedWeather = true;
+
+        stateManager.setCityToBeSearched(autoSuggestTextField.getSelectedCity());
+        dataManager.loadDataFromInternet(ScreenName.HOME);
+    }
+
+    private void cancelExistingSearch(){
+        hasSearchedWeather = false;
+        FontIcon icon = new FontIcon();
+        icon.setIconCode(FontAwesomeSolid.SEARCH);
+        icon.setIconColor(Color.WHITE);
+        searchOrCancelSearchedBtn.setGraphic(icon);
+
+        stateManager.clearCityToSearch();
+        autoSuggestTextField.clearSelection();
     }
 
     public void refreshButtonClicked(ActionEvent actionEvent) {

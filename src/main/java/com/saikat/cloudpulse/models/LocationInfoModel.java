@@ -10,7 +10,6 @@ public class LocationInfoModel {
     private Integer postal;
     private String timezone;
 
-
     public String getIp() {
         return ip;
     }
@@ -73,6 +72,14 @@ public class LocationInfoModel {
 
     public void setTimezone(String timezone) {
         this.timezone = timezone;
+    }
+
+    public Double getLatitude() {
+        return Double.valueOf(loc.split(",")[0]);
+    }
+
+    public Double getLongitude() {
+        return Double.valueOf(loc.split(",")[1]);
     }
 
     @Override

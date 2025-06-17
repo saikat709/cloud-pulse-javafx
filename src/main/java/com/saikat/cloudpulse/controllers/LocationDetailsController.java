@@ -2,6 +2,7 @@ package com.saikat.cloudpulse.controllers;
 
 import com.saikat.cloudpulse.manager.DataManager;
 import com.saikat.cloudpulse.manager.ScreenManager;
+import com.saikat.cloudpulse.manager.StateManager;
 import com.saikat.cloudpulse.models.LocationInfoModel;
 import com.saikat.cloudpulse.screens.ScreenName;
 import javafx.event.ActionEvent;
@@ -21,14 +22,16 @@ public class LocationDetailsController {
 
     private DataManager dataManager;
     private ScreenManager sm;
+    private StateManager stateManager;
 
     public void initialize() {
         this.dataManager = DataManager.getInstance();
+        this.stateManager = StateManager.getInstance();
         this.sm = ScreenManager.getInstance();
 
         sm.addOnScreenChangeListener( screenName -> {
-            if ( screenName == ScreenName.LOCATION_INFO && dataManager.getCurrentLocation() != null ){
-                setLocationInfo(dataManager.getCurrentLocation());
+            if ( screenName == ScreenName.LOCATION_INFO && stateManager.getLocationInfoModel() != null ){
+                setLocationInfo(stateManager.getLocationInfoModel());
             }
         });
     }

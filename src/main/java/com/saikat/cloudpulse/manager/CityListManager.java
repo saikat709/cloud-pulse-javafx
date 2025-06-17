@@ -5,18 +5,19 @@ import com.saikat.cloudpulse.utils.FuzzySearchUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CityList {
+public class CityListManager {
 
-    private static CityList ins;
+    private static CityListManager ins;
     private final List<City> allCities;
+    private boolean isCitySet = false;
 
-    private CityList(){
+    private CityListManager(){
         allCities = new ArrayList<>();
     }
 
-    public static CityList getInstance(){
+    public static CityListManager getInstance(){
         if ( ins == null ){
-            ins = new CityList();
+            ins = new CityListManager();
         }
         return ins;
     }
@@ -30,14 +31,18 @@ public class CityList {
     }
 
     public List<City> getCities() {
+        System.out.println("CHECK: " + isCitySet);
+        if ( !isCitySet ) return new ArrayList<>();
         return allCities;
     }
 
     public void setCities(List<City> cities) {
         this.allCities.clear();
         for( City city : cities){
-            if ( !hasCity(city) && city.getName().length() > 2  ) allCities.add(city);
+            // TODO: not checking  !hasCity(city) since the list is huge and it takes a lot of time
+            if ( city.getName().length() > 2  ) allCities.add(city);
         }
+        isCitySet = true;
     }
 
     private boolean hasCity(City city){

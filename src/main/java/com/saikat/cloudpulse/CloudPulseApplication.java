@@ -3,7 +3,7 @@ package com.saikat.cloudpulse;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.saikat.cloudpulse.listeners.CompleteOrFailureListener;
-import com.saikat.cloudpulse.manager.CityList;
+import com.saikat.cloudpulse.manager.CityListManager;
 import com.saikat.cloudpulse.manager.DataManager;
 import com.saikat.cloudpulse.manager.ScreenManager;
 import com.saikat.cloudpulse.manager.StateManager;
@@ -23,48 +23,52 @@ import java.util.stream.Collectors;
 
 public class CloudPulseApplication extends Application {
 
+    ScreenManager sm           = ScreenManager.getInstance();
+    DataManager   dm           = DataManager.getInstance();
+    StateManager  stateManager = StateManager.getInstance();
+    AppStorage    storage      = AppStorage.getInstance();
+
     @Override
     public void start(Stage stage) throws IOException {
         // stage.setResizable(false);
-        try {
-            ScreenManager sm = ScreenManager.getInstance();
-            DataManager dm = DataManager.getInstance();
-            StateManager stateManager = StateManager.getInstance();
-            AppStorage storage = AppStorage.getInstance();
 
+        try {
             storage.loadFromStorage();
-            stateManager.setUserName(storage.getSavedName());
+
+            String savedName = storage.getSavedName();
+            stateManager.setUserName(savedName);
 
             sm.initialize(stage);
             sm.enterApplication();
-            sm.switchScreen(ScreenName.LOADING);
 
-            System.out.println("Application started");
-            dm.loadDataFromInternet(new CompleteOrFailureListener() {
-                @Override public void onComplete() {
-                    if ( storage.getSavedName() == null ) {
-                        sm.switchScreen(ScreenName.NAME_INPUT);
-                    } else {
-                        stateManager.setUserName(storage.getSavedName());
-                        sm.switchScreen(ScreenName.HOME);
-                    }
+            loadCityNames();
+            ScreenName targetScreen = savedName == null ? ScreenName.NAME_INPUT : ScreenName.HOME;
+
+            dm.loadLocation(new CompleteOrFailureListener() {
+                @Override
+                public void onComplete() {
+                    dm.loadDataFromInternet(ScreenName.HOME);
                 }
-                @Override public void onFailure() {
-                    sm.switchScreen(ScreenName.ERROR);
+
+                @Override
+                public void onFailure() {
+                    dm.loadDataFromInternet( ScreenName.ERROR );
                 }
             });
+
+            System.out.println("Application started");
+
         } catch (Exception e) {
             System.out.println("Error loading application: " + e.getLocalizedMessage() );
-            e.printStackTrace();
         }
-        loadCityNames();
+
     }
 
 
     public void loadCityNames(){
         Type listType = new TypeToken<List<City>>() {}.getType();
         Gson gson = new Gson();
-        CityList cityList = CityList.getInstance();
+        CityListManager cityList = CityListManager.getInstance();
 
         InputStream inputStream = CloudPulseApplication.class.getResourceAsStream("/files/city.list.json");
         if (inputStream == null) {

@@ -8,7 +8,7 @@
 <?import com.saikat.cloudpulse.components.ForecastCards?>
 
 <StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saikat.cloudpulse.controllers.HomeController">
-    <VBox prefHeight="400.0" prefWidth="650.0" spacing="10" styleClass="screen">
+    <VBox spacing="10" styleClass="screen" >
         <padding>
             <Insets bottom="10" left="10" right="10" top="10" />
         </padding>
@@ -45,17 +45,24 @@
                 </graphic>
             </Button>
         </HBox>
-        <HBox alignment="CENTER" prefWidth="Infinity"  styleClass="container">
-            <VBox prefHeight="220" alignment="CENTER" HBox.hgrow="SOMETIMES">
+        <HBox alignment="CENTER"  styleClass="container">
+            <padding>
+                <Insets topRightBottomLeft="20" />
+            </padding>
+            <VBox prefHeight="220" alignment="CENTER" HBox.hgrow="ALWAYS">
                 <Label fx:id="cityNameLabel" text="City Name" styleClass="text-white, text-md"/>
                 <Label fx:id="temperatureLabel" text="23" styleClass="text-white, text-lg"/>
                 <Label fx:id="sunnyOrRainyLabel" text="sunny" styleClass="text-white, text-md"/>
             </VBox>
-            <Label fx:id="weatherTypeIconLabel" prefWidth="250" mnemonicParsing="true" alignment="CENTER" textAlignment="CENTER" >
-                <graphic>
-                    <FontIcon iconLiteral="fas-sun" iconColor="white" iconSize="50" />
-                </graphic>
-            </Label>
+            <VBox  HBox.hgrow="ALWAYS" prefHeight="220" alignment="CENTER">
+                <Label fx:id="weatherTypeIconLabel"
+                   prefHeight="220"  mnemonicParsing="true"
+                   alignment="CENTER" textAlignment="CENTER">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-sun" iconColor="white" iconSize="50" />
+                    </graphic>
+                </Label>
+            </VBox>
         </HBox>
 
         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="Infinity" spacing="50" styleClass="container">
@@ -78,10 +85,8 @@
         <HBox alignment="CENTER">
             <Label text="ForeCast" styleClass="forecast-title" textFill="aliceblue"/>
         </HBox>
-        <HBox prefHeight="310" styleClass="bg-transparent">
-            <ScrollPane fx:id="scrollPane"  pannable="true" prefWidth="30" vbarPolicy="NEVER" HBox.hgrow="ALWAYS" styleClass="scroll-pane, container">
-                <ForecastCards />
-            </ScrollPane>
-        </HBox>
+        <ScrollPane prefHeight="310" fx:id="scrollPane"  pannable="true" prefWidth="30" vbarPolicy="NEVER" HBox.hgrow="ALWAYS" styleClass="scroll-pane, container">
+            <ForecastCards HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+        </ScrollPane>
     </VBox>
 </StackPane>

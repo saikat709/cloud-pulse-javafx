@@ -14,7 +14,7 @@ import java.util.List;
 public class ScreenManager {
     private final HashMap<ScreenName, Screen> screens = new HashMap<>();
     public static ScreenManager screenManager;
-    public static ScreenName currentScreen = ScreenName.HOME;
+    public ScreenName currentScreen = ScreenName.NAME_INPUT;
     private Stage stage;
 
     private final List<OnScreenChangeListener> onScreenChangeListeners;
@@ -53,7 +53,8 @@ public class ScreenManager {
         if ( stage == null ) {
             System.out.println("Stage is null. Maybe you forgot to call setStage()");
         };
-        switchScreen(ScreenName.NAME_INPUT);
+        switchScreen(ScreenName.LOADING);
+        this.currentScreen = ScreenName.LOADING;
     }
 
     public void addScreen(ScreenName name, Screen screen) {
@@ -74,7 +75,9 @@ public class ScreenManager {
             return;
         }
         if ( stage == null ) {
-            System.out.println("Stage is null. Maybe you forgot to call setStage()");
+            System.out.println("Stage is null. Maybe you forgot to call initialize screen manager.");
+        } else if ( currentScreen == screenName ) {
+            return;
         } else {
             try {
                 stage.hide();
@@ -86,11 +89,10 @@ public class ScreenManager {
                     stage.setY(newY.doubleValue());
                 }
                 screen.show(stage);
-                stage.show();
-                if ( !onScreenChangeListeners.isEmpty() ){
-                    for( OnScreenChangeListener listener : onScreenChangeListeners ){
-                        listener.onScreenChange(screenName);
-                    }
+                this.currentScreen = screenName;
+                System.out.println("Screen.show() called.");
+                for( OnScreenChangeListener listener : onScreenChangeListeners ){
+                    listener.onScreenChange(screenName);
                 }
             } catch (Exception e) {
                 System.out.println("Error switching screen to + (" +  screenName.toString() + "): " + e.getLocalizedMessage());

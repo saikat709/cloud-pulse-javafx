@@ -1,6 +1,6 @@
 package com.saikat.cloudpulse.components;
 
-import com.saikat.cloudpulse.manager.CityList;
+import com.saikat.cloudpulse.manager.CityListManager;
 import com.saikat.cloudpulse.models.City;
 import com.saikat.cloudpulse.utils.FuzzySearchUtil;
 import javafx.animation.PauseTransition;
@@ -27,7 +27,7 @@ public class AutoSuggestTextField extends TextField {
         this.setPromptText("Enter City Name");
         this.suggestionMenu.setWidth(this.getWidth() - 10);
 
-        CityList cityList = CityList.getInstance();
+        CityListManager cityList = CityListManager.getInstance();
         this.setSuggestions(cityList.getCities());
     }
 
@@ -45,6 +45,8 @@ public class AutoSuggestTextField extends TextField {
         }
 
         List<City> filtered = FuzzySearchUtil.getFuzzyCityNames(suggestions, input);
+
+        System.out.println("filtered list: " + filtered.size());
 
         if (filtered.isEmpty()) {
             suggestionMenu.hide();

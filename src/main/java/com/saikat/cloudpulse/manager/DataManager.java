@@ -3,30 +3,33 @@ package com.saikat.cloudpulse.manager;
 import com.saikat.cloudpulse.api.LocationInfoAPI;
 import com.saikat.cloudpulse.api.WeatherInfoAPI;
 import com.saikat.cloudpulse.listeners.*;
+import com.saikat.cloudpulse.models.City;
 import com.saikat.cloudpulse.models.ForecastModel;
 import com.saikat.cloudpulse.models.LocationInfoModel;
 import com.saikat.cloudpulse.models.WeatherInfoModel;
+import com.saikat.cloudpulse.screens.ScreenName;
+import com.saikat.cloudpulse.utils.APIUrlUtil;
 
 public class DataManager {
-    private LocationInfoModel currentLocation;
-    private LocationInfoModel searchLocation;
     private WeatherInfoModel  weatherInfo;
     private ForecastModel     forecastModel;
 
     private final LocationInfoAPI locationInfoAPI;
-    private final WeatherInfoAPI weatherInfoAPI;
+    private final WeatherInfoAPI  weatherInfoAPI;
 
     private OnDataUploadedListener dataUploadedListener;
-    private OnPreviousScreenChange onPreviousScreenChange;
     private OnForecastDataLoaded   onForecastDataLoaded;
 
-    public static DataManager dataManager;
+    private static DataManager dataManager;
+    private final StateManager stateManager;
+    private ScreenManager screenManager;
 
     private DataManager() {
         super();
         locationInfoAPI = new LocationInfoAPI();
         weatherInfoAPI = new WeatherInfoAPI();
-        // stateManager = StateManager.getInstance();
+        screenManager = ScreenManager.getInstance();
+        stateManager = StateManager.getInstance();
     }
 
     public static DataManager getInstance() {
@@ -36,32 +39,49 @@ public class DataManager {
         return dataManager;
     }
 
+
+    public void loadLocation(CompleteOrFailureListener listener){
+        locationInfoAPI.getLocationInfo(new ApiCallListener<LocationInfoModel>() {
+            @Override
+            public void onApiCallSuccess(LocationInfoModel result) {
+                stateManager.setLocationInfoModel(result);
+                listener.onComplete();
+            }
+
+            @Override
+            public void onApiCallFailure(String errorMessage) {
+                stateManager.setErrorMessage(errorMessage);
+                listener.onFailure();
+            }
+        });
+    }
+
+    public void loadDataFromInternet(ScreenName targetScreen){
+        screenManager.switchScreen(ScreenName.LOADING);
+        this.loadDataFromInternet(new CompleteOrFailureListener() {
+            @Override
+            public void onComplete() {
+                screenManager.switchScreen(targetScreen);
+            }
+
+            @Override
+            public void onFailure() {
+                screenManager.switchScreen(ScreenName.ERROR);
+            }
+        });
+    }
+
     public void loadDataFromInternet(CompleteOrFailureListener listener){
         final int[] completedCount = {0};
 
         Runnable checkAllDone = () -> {
-            if (completedCount[0] == 3 ) {
-                System.out.println("✅ All data loaded from internet.");
+            if (completedCount[0] == 2 ) {
+                System.out.println("All data loaded from internet.");
                 listener.onComplete();
                 if ( dataUploadedListener != null  ) dataUploadedListener.onDataUploaded();
             }
         };
 
-        locationInfoAPI.getLocationInfo(new ApiCallListener<LocationInfoModel>() {
-            @Override
-            public void onApiCallSuccess(LocationInfoModel result) {
-                setCurrentLocation(result);
-                System.out.println("Successfully loaded Location from internet");
-                completedCount[0]++;
-                checkAllDone.run();
-            }
-
-            @Override
-            public void onApiCallFailure(String errorMessage) {
-                listener.onFailure();
-                // TODO: setErrorMessage
-            }
-        });
 
         weatherInfoAPI.getWeather( new ApiCallListener<WeatherInfoModel>() {
             @Override
@@ -98,31 +118,23 @@ public class DataManager {
         });
     }
 
+
     public void setOnDataUploadedListener(OnDataUploadedListener listener) {
         this.dataUploadedListener = listener;
     }
 
-    public void setCurrentLocation(LocationInfoModel currentLocation) {
-        this.currentLocation = currentLocation;
-    }
-    public LocationInfoModel getCurrentLocation() {
-        return currentLocation;
-    }
-    public void setSearchLocation(LocationInfoModel searchLocation) {
-        this.searchLocation = searchLocation;
-    }
-    public LocationInfoModel getSearchLocation() {
-        return searchLocation;
-    }
     public void setWeatherInfo(WeatherInfoModel weatherInfo) {
         this.weatherInfo = weatherInfo;
     }
+
     public WeatherInfoModel getWeatherInfo() {
         return weatherInfo;
     }
+
     public void setForecastModel(ForecastModel forecastModel) {
         this.forecastModel = forecastModel;
     }
+
     public ForecastModel getForecastModel() {
         return forecastModel;
     }
@@ -130,15 +142,6 @@ public class DataManager {
     public OnDataUploadedListener getDataUploadedListener() {
         return dataUploadedListener;
     }
-
-    public OnPreviousScreenChange getOnPreviousScreenChange() {
-        return onPreviousScreenChange;
-    }
-
-    public void setOnPreviousScreenChange(OnPreviousScreenChange onPreviousScreenChange) {
-        this.onPreviousScreenChange = onPreviousScreenChange;
-    }
-
 
     public void setOnForecastDataLoaded(OnForecastDataLoaded onForecastDataLoaded) {
         this.onForecastDataLoaded = onForecastDataLoaded;

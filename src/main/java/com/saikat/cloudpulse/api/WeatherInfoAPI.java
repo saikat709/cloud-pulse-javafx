@@ -3,20 +3,26 @@ package com.saikat.cloudpulse.api;
 import com.google.gson.Gson;
 import com.saikat.cloudpulse.listeners.ApiCallListener;
 import com.saikat.cloudpulse.listeners.ApiResponseListener;
+import com.saikat.cloudpulse.manager.DataManager;
+import com.saikat.cloudpulse.manager.StateManager;
+import com.saikat.cloudpulse.models.City;
 import com.saikat.cloudpulse.models.ForecastModel;
+import com.saikat.cloudpulse.models.LocationInfoModel;
 import com.saikat.cloudpulse.models.WeatherInfoModel;
+import com.saikat.cloudpulse.utils.APIUrlUtil;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class WeatherInfoAPI extends RetrieveFromApi{
-    private final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
     public final Gson gson = new Gson();
-    private final Dotenv dotenv;
     private final String API_KEY;
+
+    private final StateManager stateManager;
 
     public WeatherInfoAPI() {
         super();
-        this.dotenv = Dotenv.load();
+        Dotenv dotenv = Dotenv.load();
         this.API_KEY = dotenv.get("API_KEY");
+        this.stateManager = StateManager.getInstance();
 
         System.out.println("API_KEY: " + API_KEY);
         if ( API_KEY == null ) {
@@ -67,11 +73,29 @@ public class WeatherInfoAPI extends RetrieveFromApi{
     }
 
     private String getForeCastUrl(){
-        return BASE_URL + "forecast?q=" + "London,uk" + "&format=json&APPID=" + API_KEY;
+        LocationInfoModel loc = stateManager.getLocationInfoModel();
+        City cityToSearch = stateManager.getCityToBeSearched();
+        if ( loc == null && cityToSearch == null ){
+            throw new IllegalArgumentException("Location and city oth can not be null.");
+        }
+        if ( cityToSearch != null ){
+            return APIUrlUtil.foreCastUrlFromLatLong(cityToSearch.getLatitude(), cityToSearch.getLongitude(), API_KEY);
+        }
+
+        return APIUrlUtil.foreCastUrlFromLatLong(loc.getLatitude(), loc.getLongitude(), API_KEY);
     }
 
     private String getWeatherUrl(){
-        return BASE_URL + "weather?q=" + "London,uk" + "&format=json&APPID=" + API_KEY;
+        LocationInfoModel loc = stateManager.getLocationInfoModel();
+        City cityToSearch = stateManager.getCityToBeSearched();
+        if ( loc == null && cityToSearch == null ){
+            throw new IllegalArgumentException("Location and city oth can not be null.");
+        }
+        if ( cityToSearch != null ){
+            return APIUrlUtil.weatherUrlFromLatLong(cityToSearch.getLatitude(), cityToSearch.getLongitude(), API_KEY);
+        }
+
+        return APIUrlUtil.weatherUrlFromLatLong(loc.getLatitude(), loc.getLongitude(), API_KEY);
     }
 }
 

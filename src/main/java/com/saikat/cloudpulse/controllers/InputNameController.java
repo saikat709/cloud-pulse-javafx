@@ -17,24 +17,23 @@ public class InputNameController {
     @FXML public Button saveButton;
     @FXML public Button cancelButton;
 
-    private ScreenManager screenManager;
-    private DataManager   dataManager;
-    private StateManager stateManager;
+    private final ScreenManager screenManager = ScreenManager.getInstance();
+    private final DataManager   dataManager   = DataManager.getInstance();
+    private final StateManager  stateManager  = StateManager.getInstance();
 
     public void initialize(){
-        this.screenManager = ScreenManager.getInstance();
-        this.dataManager = DataManager.getInstance();
-        this.stateManager = StateManager.getInstance();
         System.out.println("Input name screen initialized: " + stateManager.getUserName() + " " + (dataManager == null) + " " + (screenManager == null) );
 
-        if( this.dataManager != null)  textField.setText(this.stateManager.getUserName());
+        textField.setText(this.stateManager.getUserName());
+
         textField.setOnKeyPressed( k -> {
             if ( k.getCode().equals(KeyCode.ENTER) ) {
                 saveAndChange();
             }
         });
 
-        screenManager.addOnScreenChangeListener( screenName -> {
+        assert screenManager != null;
+        screenManager.addOnScreenChangeListener(screenName -> {
             if ( screenName == ScreenName.NAME_INPUT && stateManager.isCanGoBack() ){
                 cancelButton.setText("Go Back");
                 cancelButton.setVisible(true);

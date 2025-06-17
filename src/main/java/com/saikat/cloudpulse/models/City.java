@@ -5,10 +5,18 @@ public class City {
     String name;
     String state;
     String country;
-    Coord coord;
+    Coord  coord;
 
     public String getName() {
         return name;
+    }
+
+    public Double getLatitude(){
+        return this.coord.getLat();
+    }
+
+    public Double getLongitude(){
+        return this.coord.getLon();
     }
 
     @Override
