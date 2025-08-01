@@ -68,13 +68,18 @@
     -fx-color-label-visible: #ffffff;
     -fx-border-color: #935059;
     -fx-text-fill: white;
-    -fx-padding: 10;
+    -fx-padding: 5;
 }
 
 .container-title {
     -fx-padding: 10 20;
 }
 
+.scroll-pane {
+    -fx-padding: 0px;
+    -fx-alignment: center;
+    -fx-background-color: transparent;
+}
 
  /* Scroll bar */
 .scroll-pane .scroll-bar:horizontal {

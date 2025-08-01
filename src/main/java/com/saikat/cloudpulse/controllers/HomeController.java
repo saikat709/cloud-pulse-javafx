@@ -10,6 +10,7 @@ import com.saikat.cloudpulse.models.ForecastModel;
 import com.saikat.cloudpulse.models.LocationInfoModel;
 import com.saikat.cloudpulse.models.WeatherInfoModel;
 import com.saikat.cloudpulse.screens.ScreenName;
+import com.saikat.cloudpulse.utils.IconUtil;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,12 +24,9 @@ import org.kordamp.ikonli.javafx.FontIcon;
 import java.util.Calendar;
 
 public class HomeController {
-    @FXML public MenuButton menuButton;
-    @FXML public Button    refreshButton;
-    @FXML public AutoSuggestTextField autoSuggestTextField;
+    @FXML public Button refreshButton;
     @FXML public HBox  titleContainer;
     @FXML public Label weatherTypeIconLabel;
-    @FXML public ScrollPane scrollPane;
     @FXML public Label nameLabel;
     @FXML public Label greetingTimeLabel;
     @FXML public Label sunnyOrRainyLabel;
@@ -37,15 +35,15 @@ public class HomeController {
     @FXML public Label pressureLabel;
     @FXML public Label windSpeedLabel;
     @FXML public Label humidityLabel;
+    @FXML public MenuButton menuButton;
     @FXML public Button searchOrCancelSearchedBtn;
+    @FXML public ScrollPane scrollPane;
+    @FXML public AutoSuggestTextField autoSuggestTextField;
 
-    private final ScreenManager manager =  ScreenManager.getInstance();
-    private final DataManager   dataManager = DataManager.getInstance();
+    private final ScreenManager manager      =  ScreenManager.getInstance();
+    private final DataManager   dataManager  = DataManager.getInstance();
     private final StateManager  stateManager = StateManager.getInstance();
-    private final CityListManager cityList = CityListManager.getInstance();
 
-    private WeatherInfoModel previousWeatherInfo;
-    private ForecastModel previousForecastInfo;
     private boolean hasSearchedWeather;
 
     public void initialize(){
@@ -75,11 +73,15 @@ public class HomeController {
     }
 
     private void updateInformation() {
-        LocationInfoModel locationInfoModel = stateManager.getLocationInfoModel();
-        cityNameLabel.setText(locationInfoModel.getCity());
-
         WeatherInfoModel weatherInfoModel = dataManager.getWeatherInfo();
+        System.out.println(weatherInfoModel.toString());
+
+        cityNameLabel.setText(weatherInfoModel.getName());
         temperatureLabel.setText( (int) ( weatherInfoModel.getMain().getTemp() - 273 ) + "°C");
+
+        FontIcon literal = IconUtil.getWeatherIcon(weatherInfoModel.getWeather().getIcon(), 60);
+        weatherTypeIconLabel.setGraphic(literal);
+
         windSpeedLabel.setText(weatherInfoModel.getWind().getSpeed() + " m/s");
         humidityLabel.setText(weatherInfoModel.getMain().getHumidity() + "%");
         pressureLabel.setText(weatherInfoModel.getMain().getPressure() + " hPa");
@@ -90,15 +92,10 @@ public class HomeController {
 
         Calendar cal = Calendar.getInstance();
         int hour = cal.get(Calendar.HOUR_OF_DAY);
-        if ( hour < 12 ) {
-            greetingTimeLabel.setText("Good morning...!");
-        } else if ( hour < 18 ) {
-            greetingTimeLabel.setText("Good afternoon...!");
-        } else if ( hour < 20 ) {
-            greetingTimeLabel.setText("Good evening...!");
-        }  else {
-            greetingTimeLabel.setText("Good night...!");
-        }
+        if      ( hour < 12 ) greetingTimeLabel.setText("Good morning...!");
+        else if ( hour < 18 ) greetingTimeLabel.setText("Good afternoon...!");
+        else if ( hour < 20 ) greetingTimeLabel.setText("Good evening...!");
+        else                  greetingTimeLabel.setText("Good night...!");
     }
 
     @FXML
@@ -144,7 +141,7 @@ public class HomeController {
         FontIcon icon = new FontIcon();
         icon.setIconColor(Color.WHITE);
 
-        icon.setIconCode(FontAwesomeSolid.CODE); // TODO: cancel icon
+        icon.setIconCode(FontAwesomeSolid.TIMES);
         icon.setIconColor(Color.WHITE);
         searchOrCancelSearchedBtn.setGraphic(icon);
         manager.switchScreen(ScreenName.LOADING);
@@ -164,7 +161,6 @@ public class HomeController {
         stateManager.clearCityToSearch();
         autoSuggestTextField.clearSelection();
     }
-
     public void refreshButtonClicked(ActionEvent actionEvent) {
         manager.switchScreen(ScreenName.LOADING);
         dataManager.loadDataFromInternet(new CompleteOrFailureListener() {
@@ -181,9 +177,9 @@ public class HomeController {
     }
 }
 
- /*
-    FontIcon icon = new FontIcon(FontAwesomeSolid.BARS);  // 'fas' = FontAwesome Solid
-    icon.setIconColor(Color.WHITE);
-    menuButton.setGraphic(icon);
-    System.out.println("Home screen initialized: " + FontAwesomeSolid.ARROW_CIRCLE_DOWN);
+ /**
+FontIcon icon = new FontIcon(FontAwesomeSolid.BARS);  // 'fas' = FontAwesome Solid
+icon.setIconColor(Color.WHITE);
+menuButton.setGraphic(icon);
+System.out.println("Home screen initialized: " + FontAwesomeSolid.ARROW_CIRCLE_DOWN);
 */

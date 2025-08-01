@@ -7,8 +7,10 @@
 <?import com.saikat.cloudpulse.components.AutoSuggestTextField?>
 <?import com.saikat.cloudpulse.components.ForecastCards?>
 
-<StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saikat.cloudpulse.controllers.HomeController">
-    <VBox spacing="10" styleClass="screen" >
+<StackPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.saikat.cloudpulse.controllers.HomeController"
+           styleClass="screen">
+    <VBox maxWidth="850" maxHeight="775" spacing="10" StackPane.alignment="CENTER">
         <padding>
             <Insets bottom="10" left="10" right="10" top="10" />
         </padding>
@@ -66,27 +68,33 @@
         </HBox>
 
         <HBox alignment="CENTER" prefHeight="150.0" prefWidth="Infinity" spacing="50" styleClass="container">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
             <Label fx:id="humidityLabel" text="60%" styleClass="text-white" graphicTextGap="10" mnemonicParsing="true" textAlignment="CENTER" alignment="CENTER" >
                 <graphic>
-                    <FontIcon iconLiteral="fas-cloud" iconColor="antiquewhite" iconSize="13"/>
+                    <FontIcon iconLiteral="fas-tint" iconColor="antiquewhite" iconSize="14"/>
                 </graphic>
             </Label>
             <Label fx:id="windSpeedLabel" text="12 km/h" styleClass="text-white" textAlignment="CENTER" graphicTextGap="10">
                 <graphic>
-                    <FontIcon iconLiteral="fas-wind" iconColor="antiquewhite" iconSize="13"/>
+                    <FontIcon iconLiteral="fas-wind" iconColor="antiquewhite" iconSize="14"/>
                 </graphic>
             </Label>
             <Label fx:id="pressureLabel" text="1080 hPa" styleClass="text-white" graphicTextGap="10" textAlignment="CENTER">
                 <graphic>
-                    <FontIcon iconLiteral="fas-cog" iconColor="antiquewhite" iconSize="13"/>
+                    <FontIcon iconLiteral="fas-tachometer-alt" iconColor="antiquewhite" iconSize="14"/>
                 </graphic>
             </Label>
         </HBox>
         <HBox alignment="CENTER">
             <Label text="ForeCast" styleClass="forecast-title" textFill="aliceblue"/>
         </HBox>
-        <ScrollPane prefHeight="310" fx:id="scrollPane"  pannable="true" prefWidth="30" vbarPolicy="NEVER" HBox.hgrow="ALWAYS" styleClass="scroll-pane, container">
-            <ForecastCards HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
-        </ScrollPane>
+        <VBox styleClass="container" alignment="CENTER" VBox.vgrow="ALWAYS" prefHeight="300">
+            <ScrollPane fx:id="scrollPane" pannable="true" prefWidth="30"
+                        vbarPolicy="NEVER" HBox.hgrow="ALWAYS" styleClass="scroll-pane">
+                <ForecastCards StackPane.alignment="CENTER_LEFT" alignment="CENTER"/>
+            </ScrollPane>
+        </VBox>
     </VBox>
 </StackPane>

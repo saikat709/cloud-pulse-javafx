@@ -5,9 +5,9 @@ import com.saikat.cloudpulse.manager.ScreenManager;
 import com.saikat.cloudpulse.manager.StateManager;
 import com.saikat.cloudpulse.models.LocationInfoModel;
 import com.saikat.cloudpulse.screens.ScreenName;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 public class LocationDetailsController {
     @FXML private Label ipLabel;
@@ -49,7 +49,7 @@ public class LocationDetailsController {
     }
 
     @FXML
-    public void onBackButtonClick(ActionEvent actionEvent) {
+    public void onBackButtonClick(MouseEvent actionEvent) {
         sm.switchScreen(ScreenName.HOME);
     }
 }

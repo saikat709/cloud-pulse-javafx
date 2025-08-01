@@ -40,8 +40,7 @@ public class Screen {
             stage.setScene(getScene());
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading screen: " + e.getLocalizedMessage());
+            System.out.println("In Screen > Error loading screen: " + e.getLocalizedMessage());
         }
     }
 

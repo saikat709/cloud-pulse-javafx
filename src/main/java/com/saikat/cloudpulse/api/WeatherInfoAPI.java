@@ -33,6 +33,8 @@ public class WeatherInfoAPI extends RetrieveFromApi{
     }
 
     public void getWeather(ApiCallListener<WeatherInfoModel> listener){
+        System.out.println("Weather url: " + getWeatherUrl());
+
         this.callAPI(getWeatherUrl(), new ApiResponseListener() {
             @Override
             public void onFailure(String message) {
@@ -53,7 +55,8 @@ public class WeatherInfoAPI extends RetrieveFromApi{
 
 
     public void getForeCast(ApiCallListener<ForecastModel> listener){
-        System.out.println(getForeCastUrl());
+        System.out.println("Forecast url: " + getForeCastUrl());
+
         this.callAPI(getForeCastUrl(), new ApiResponseListener() {
             @Override
             public void onFailure(String message) {
@@ -75,12 +78,11 @@ public class WeatherInfoAPI extends RetrieveFromApi{
     private String getForeCastUrl(){
         LocationInfoModel loc = stateManager.getLocationInfoModel();
         City cityToSearch = stateManager.getCityToBeSearched();
-        if ( loc == null && cityToSearch == null ){
-            throw new IllegalArgumentException("Location and city oth can not be null.");
-        }
-        if ( cityToSearch != null ){
+
+        if ( loc == null && cityToSearch == null ) throw new IllegalArgumentException("Location and city oth can not be null.");
+
+        if ( cityToSearch != null )
             return APIUrlUtil.foreCastUrlFromLatLong(cityToSearch.getLatitude(), cityToSearch.getLongitude(), API_KEY);
-        }
 
         return APIUrlUtil.foreCastUrlFromLatLong(loc.getLatitude(), loc.getLongitude(), API_KEY);
     }
@@ -88,12 +90,12 @@ public class WeatherInfoAPI extends RetrieveFromApi{
     private String getWeatherUrl(){
         LocationInfoModel loc = stateManager.getLocationInfoModel();
         City cityToSearch = stateManager.getCityToBeSearched();
-        if ( loc == null && cityToSearch == null ){
-            throw new IllegalArgumentException("Location and city oth can not be null.");
-        }
-        if ( cityToSearch != null ){
+
+
+        if ( loc == null && cityToSearch == null ) throw new IllegalArgumentException("Location and city oth can not be null.");
+
+        if ( cityToSearch != null )
             return APIUrlUtil.weatherUrlFromLatLong(cityToSearch.getLatitude(), cityToSearch.getLongitude(), API_KEY);
-        }
 
         return APIUrlUtil.weatherUrlFromLatLong(loc.getLatitude(), loc.getLongitude(), API_KEY);
     }

@@ -2,6 +2,24 @@
     -fx-background-color: rgba(40, 91, 135, 0.87);
     -fx-text-fill: white;
     -fx-background-radius: 12px;
-    -fx-padding: 10px;
+    -fx-padding: 10px 20px;
     -fx-min-width: 200px;
 }
+
+.bg-full {
+    -fx-background-color:  #060110;
+}
+
+.btn:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.text-white {
+    -fx-text-fill: white;
+}
+
+.text-white:hover {
+    -fx-text-fill: #ba8f7f;
+}
+

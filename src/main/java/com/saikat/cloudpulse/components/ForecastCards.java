@@ -16,6 +16,7 @@ public class ForecastCards extends HBox {
         super();
         this.dataManager = DataManager.getInstance();
         this.setSpacing(14);
+        this.setHeight(160);
         dataManager.setOnForecastDataLoaded(this::updateCards);
         updateCards();
     }

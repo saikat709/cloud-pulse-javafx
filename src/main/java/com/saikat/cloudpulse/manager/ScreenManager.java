@@ -1,6 +1,5 @@
 package com.saikat.cloudpulse.manager;
 
-import com.saikat.cloudpulse.CloudPulseApplication;
 import com.saikat.cloudpulse.listeners.OnScreenChangeListener;
 import com.saikat.cloudpulse.screens.Screen;
 import com.saikat.cloudpulse.screens.ScreenName;
@@ -33,6 +32,7 @@ public class ScreenManager {
 
     public void initialize(Stage stage) {
         this.stage = stage;
+
         stage.xProperty().addListener((obs, oldX, newX) -> {
             this.newX = newX;
         });
@@ -40,6 +40,7 @@ public class ScreenManager {
         stage.yProperty().addListener((obs, oldY, newY) -> {
             this.newY = newY;
         });
+
     }
 
     public static ScreenManager getInstance() {
@@ -74,13 +75,13 @@ public class ScreenManager {
             alert.showAndWait();
             return;
         }
+
         if ( stage == null ) {
             System.out.println("Stage is null. Maybe you forgot to call initialize screen manager.");
         } else if ( currentScreen == screenName ) {
             return;
         } else {
             try {
-                stage.hide();
                 currentScreen = screenName;
                 Screen screen = screens.get(screenName);
                 if ( newX != null && newY != null ) {

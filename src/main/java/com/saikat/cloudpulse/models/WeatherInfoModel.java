@@ -23,11 +23,11 @@ public class WeatherInfoModel {
         this.coord = coord;
     }
 
-    public List<Weather> getWeather() {
-        return weather;
+    public Weather getWeather() {
+        return weather.getFirst();
     }
 
-    public void setWeather(List<Weather> weather) {
+    public void getWeather(List<Weather> weather) {
         this.weather = weather;
     }
 

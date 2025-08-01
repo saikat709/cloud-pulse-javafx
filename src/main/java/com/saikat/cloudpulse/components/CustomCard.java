@@ -11,7 +11,6 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Objects;
 
 public class CustomCard extends AnchorPane {

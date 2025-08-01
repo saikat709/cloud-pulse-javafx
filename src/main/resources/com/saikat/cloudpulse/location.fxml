@@ -1,46 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+<?import javafx.geometry.Insets?>
 
-<?import javafx.scene.control.Button?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
-<GridPane alignment="CENTER" xmlns:fx="http://javafx.com/fxml" hgap="15" vgap="12" fx:controller="com.saikat.cloudpulse.controllers.LocationDetailsController">
+<GridPane alignment="CENTER"
+          hgap="15"
+          styleClass="bg-full"
+          vgap="12"
+          xmlns:fx="http://javafx.com/fxml/1"
+          xmlns="http://javafx.com/javafx/17.0.12"
+          fx:controller="com.saikat.cloudpulse.controllers.LocationDetailsController">
 
-    <Label text="Location Information" GridPane.columnSpan="2" style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #df62df" />
+    <padding>
+        <Insets topRightBottomLeft="10" />
+    </padding>
 
-    <Label text="IP Address:" GridPane.rowIndex="1" />
-    <Label fx:id="ipLabel" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+    <Label style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #df62df" text="Location Information" GridPane.columnSpan="2" />
 
-    <Label text="City:" GridPane.rowIndex="2" />
-    <Label fx:id="cityLabel" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+    <Label styleClass="text-white" text="IP Address:" GridPane.rowIndex="1" />
+    <Label fx:id="ipLabel" styleClass="text-white" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-    <Label text="Region:" GridPane.rowIndex="3" />
-    <Label fx:id="regionLabel" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+    <Label styleClass="text-white" text="City:" GridPane.rowIndex="2" />
+    <Label fx:id="cityLabel" styleClass="text-white" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-    <Label text="Country:" GridPane.rowIndex="4" />
-    <Label fx:id="countryLabel" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+    <Label styleClass="text-white" text="Region:" GridPane.rowIndex="3" />
+    <Label fx:id="regionLabel" styleClass="text-white" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-    <Label text="Coordinates:" GridPane.rowIndex="5" />
-    <Label fx:id="locLabel" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+    <Label styleClass="text-white" text="Country:" GridPane.rowIndex="4" />
+    <Label fx:id="countryLabel" styleClass="text-white" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-    <Label text="Organization:" GridPane.rowIndex="6" />
-    <Label fx:id="orgLabel" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+    <Label styleClass="text-white" text="Coordinates:" GridPane.rowIndex="5" />
+    <Label fx:id="locLabel" styleClass="text-white" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-    <Label text="Postal Code:" GridPane.rowIndex="7" />
-    <Label fx:id="postalLabel" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+    <Label styleClass="text-white" text="Organization:" GridPane.rowIndex="6" />
+    <Label fx:id="orgLabel" styleClass="text-white" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-    <Label text="Timezone:" GridPane.rowIndex="8" />
-    <Label fx:id="timezoneLabel" GridPane.rowIndex="8" GridPane.columnIndex="1" />
+    <Label styleClass="text-white" text="Postal Code:" GridPane.rowIndex="7" />
+    <Label fx:id="postalLabel" styleClass="text-white" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-    <Label text="More Info:" GridPane.rowIndex="9" />
-    <Label fx:id="readmeLabel" GridPane.rowIndex="9" GridPane.columnIndex="1" wrapText="true" />
+    <Label styleClass="text-white" text="Timezone:" GridPane.rowIndex="8" />
+    <Label fx:id="timezoneLabel" styleClass="text-white" GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
-    <Button text="Okay" styleClass="btn"
-            GridPane.rowIndex="11" GridPane.columnSpan="2" graphicTextGap="10"
-            onAction="#onBackButtonClick">
-        <graphic>
-            <FontIcon iconLiteral="fas-arrow-left" iconSize="18" iconColor="aliceblue" />
-        </graphic>
-    </Button>
+    <Label styleClass="text-white" text="More Info:" GridPane.rowIndex="9" />
+    <Label fx:id="readmeLabel" styleClass="text-white" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+
+    <HBox alignment="CENTER_LEFT"
+          onMouseClicked="#onBackButtonClick" spacing="10" styleClass="btn" GridPane.columnSpan="1" GridPane.rowIndex="11">
+        <FontIcon iconColor="aliceblue" iconLiteral="fas-arrow-left" iconSize="18" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Label text="Okay" textFill="aliceblue" />
+    </HBox>
 </GridPane>
