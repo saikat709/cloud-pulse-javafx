@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b558519-d27d-411e-94a1-a4bdefb766d1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/utils/IconUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/api/WeatherInfoAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/api/WeatherInfoAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/CustomCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/CustomCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/ForecastCards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/components/ForecastCards.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/LocationDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/controllers/LocationDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/ScreenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/manager/ScreenManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/WeatherInfoModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/models/WeatherInfoModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/screens/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saikat/cloudpulse/screens/Screen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/components/card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/components/card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/comp/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/comp/card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/location-info.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/css/location-info.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/location.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/saikat/cloudpulse/location.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="3b558519-d27d-411e-94a1-a4bdefb766d1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +150,7 @@
       <workItem from="1750184322864" duration="2996000" />
       <workItem from="1750401295453" duration="8000" />
       <workItem from="1750911999431" duration="126000" />
-      <workItem from="1754053754944" duration="3973000" />
+      <workItem from="1754053754944" duration="4769000" />
     </task>
     <servers />
   </component>
